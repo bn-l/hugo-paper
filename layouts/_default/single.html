@@ -6,9 +6,11 @@
 
     {{ if ne .Type "page" }}
     <div class="text-sm antialiased opacity-60">
-      {{ if .Date }}
-      <time>{{ .Date | time.Format ":date_medium" }}</time>
-      {{ end }}<!---->
+      {{ if ne .Date .Lastmod }}
+        <time><span class="text-[#ff3b2d]">Updated:</span> {{ .Lastmod | time.Format ":date_medium" }}</time>
+      {{ else }}
+        <time>{{ .Date | time.Format ":date_medium" }}</time>
+      {{ end }}
       {{ $single_author := or .Params.Author site.Author.name }}
       <!---->
       {{ if $single_author }}
@@ -17,6 +19,27 @@
       {{ end }}
     </div>
     {{ end }}
+
+
+    {{ if .Page.Store.Get "hasMermaid" }}
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ 
+        startOnLoad: true, 
+        darkMode: false, 
+        theme: "base",
+        themeVariables: {
+          primaryColor: '#cccccc',
+          primaryTextColor: '#36373a',
+          primaryBorderColor: '#a67b40',
+          lineColor: '#e06c75',
+          secondaryColor: '#88ab98',
+          tertiaryColor: '#e5c07b',
+        }
+      });
+    </script>
+    {{ end }}
+  
   </header>
 
   <section>{{ .Content }}</section>
@@ -100,6 +123,9 @@
     })();
   </script>
   {{ end }}
+
 </article>
+
+
 
 {{ end }}

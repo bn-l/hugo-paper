@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <h1>{{ .Data.Plural }}</h1>
+  <ul>
+    {{ range .Data.Terms }}
+      <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+    {{ end }}
+  </ul>
+{{ end }}
