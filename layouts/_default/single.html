@@ -2,7 +2,7 @@
 
 <article>
   <header class="mb-16">
-    <h1 class="!my-0 pb-2.5">{{ .Title }}</h1>
+    <h1 class="!my-0 pb-2.5">{{ .Title | markdownify }}</h1>
 
     {{ if ne .Type "page" }}
     <div class="text-sm antialiased opacity-60">
@@ -20,6 +20,9 @@
     </div>
     {{ end }}
 
+    {{ if .Params.toc }}
+      {{ .TableOfContents }}
+    {{ end }}
 
     {{ if .Page.Store.Get "hasMermaid" }}
     <script type="module">
@@ -39,7 +42,7 @@
       });
     </script>
     {{ end }}
-  
+
   </header>
 
   <section>{{ .Content }}</section>
@@ -66,14 +69,14 @@
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
       href="{{ .Permalink }}"
-      ><span class="mr-1.5">←</span><span>{{ .Name }}</span></a
+      ><span class="mr-1.5">←</span><span>{{ .Name | markdownify }}</span></a
     >
     {{ end }}<!---->
     {{ with $pages.Prev . }}
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
       href="{{ .Permalink }}"
-      ><span>{{ .Name }}</span><span class="ml-1.5">→</span></a
+      ><span>{{ .Name | markdownify}}</span><span class="ml-1.5">→</span></a
     >
     {{ end }}
   </nav>

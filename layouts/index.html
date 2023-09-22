@@ -1,1 +1,37 @@
-test
+{{ define "main" }}
+
+    {{ partial "avatar-and-bio" . }}
+
+
+    {{ range where (site.RegularPages.GroupBy "Section") "Key" "in" site.Params.mainSections }}
+    {{ if gt (len site.Params.mainSections) 1 }}  
+        <h2>{{ .Key | title }}</h2>  
+    {{ end }} 
+
+        {{/*  First 4 featured posts   */}}
+        {{/*  {{ range first 4 .Pages.ByWeight }}
+            {{ .Render "li"  }}
+        {{ end }}    */}}
+
+        {{ $top4 := first 4 (where .Pages.ByWeight "Params.weight" ">" 0) }}
+
+        {{ range $top4 }}
+            {{ .Render "li"  }}
+        {{ end }}  
+
+        {{ range .Pages }}  
+            {{ if not (in $top4 .) }}
+                {{ .Render "li"  }}
+            {{ end }}
+        {{ end }}
+
+
+    {{/*  
+        - This replaces the main block in baseof
+        - Create li view (no need for single)
+    */}}
+
+    {{ end }}
+
+{{ end }}
+

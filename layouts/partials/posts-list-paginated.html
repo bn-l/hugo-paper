@@ -1,0 +1,23 @@
+
+{{ $numberPerPage = 10 }}
+
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $postsPaginator := .Paginate $posts $numberPerPage }}
+{{ range $index, $page := $postsPaginator.Pages }}
+
+  {{ partial "posts-list-item" . }}
+
+{{ end }}
+
+{{ if gt $postsPaginator.TotalPages 1 }}
+<nav class="mt-16 flex">
+  {{ if $postsPaginator.HasPrev }}
+  <a class="btn" href="{{ $postsPaginator.Prev.URL }}">← {{ i18n "prev_page" }}</a>
+  {{ end }}<!---->
+  {{ if $postsPaginator.HasNext }}
+  <a class="btn ml-auto" href="{{ $postsPaginator.Next.URL }}"
+    >{{ i18n "next_page" }} →</a
+  >
+{{ end }}
+</nav>
+{{ end }}<!---->

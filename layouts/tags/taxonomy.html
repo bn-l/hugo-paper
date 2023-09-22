@@ -1,0 +1,5 @@
+{{ define "main" }}
+  {{ if and .Title (eq .Type "tags") }}
+    <h1 class="mb-16">#{{ .Title }}</h1>
+  {{ end }}
+{{ end }}

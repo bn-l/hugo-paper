@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+
+    {{ range (where site.RegularPages "Type" "in" site.Params.mainSections).GroupByDate "2006-01" }}
+    
+        <h2 
+            {{/*  style="color: var(--tw-prose-counters) !important"  */}}
+            style="color: var(--featured-color) !important"
+            class="first-of-type:mt-3 archives-heading"
+        >
+            {{ .Key }}
+        </h2>
+        <div class="pl-3 year-list">
+        {{ range .Pages }}
+
+            {{ .Render "li-nodesc"  }}
+        
+        {{ end }}
+        </div>
+    
+
+    {{/*  
+        - This replaces the main block in baseof
+        - Create li view (no need for single)
+        - Sorted by updated partial (which gets its pages from a range here)
+        - Add summary classes (information, warning, etc)
+    */}}
+    {{ end }}
+
+
+{{ end }}

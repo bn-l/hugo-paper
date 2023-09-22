@@ -1,0 +1,7 @@
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ range $index, $page := $posts }}
+
+  {{ partial "posts-list-item" . }}
+
+{{ end }}
+

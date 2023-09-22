@@ -1,0 +1,10 @@
+{{ $dest := .Destination }}
+{{ $destParsed := urls.Parse $dest }}
+
+{{ if $destParsed.IsAbs }}
+    <img src="{{ $dest }}" alt="{{ .Text }}" />
+{{ else }}
+    {{/*  {{ $newPath := printf "/posts/images/%s" (path.Base $dest) }}  */}}
+    {{ $newPath := path.Join "/posts/" $dest }}
+    <img src="{{ $newPath }}" alt="{{ .Text }}" />
+{{ end }}

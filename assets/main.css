@@ -705,8 +705,8 @@ body {
   color: var(--tw-prose-headings);
   font-weight: 700;
   font-size: 1.5em;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin-top: 1.2em;
+  margin-bottom: 0.8em;
   line-height: 1.3333333;
 }
 
@@ -719,8 +719,8 @@ body {
   color: var(--tw-prose-headings);
   font-weight: 600;
   font-size: 1.25em;
-  margin-top: 1.6em;
-  margin-bottom: 0.6em;
+  margin-top: 1.3em;
+  margin-bottom: 0.9em;
   line-height: 1.6;
 }
 
@@ -732,8 +732,8 @@ body {
 .prose :where(h4):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  margin-top: 1.1em;
+  margin-bottom: 0.8em;
   line-height: 1.5;
 }
 
@@ -761,17 +761,17 @@ body {
 
 .prose :where(code):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-code);
-  font-weight: 600;
+  font-weight: 300;
   font-size: 0.875em;
 }
 
-.prose :where(code):not(:where([class~="not-prose"] *))::before {
+/* .prose :where(code):not(:where([class~="not-prose"] *))::before {
   content: "`";
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *))::after {
   content: "`";
-}
+} */
 
 .prose :where(a code):not(:where([class~="not-prose"] *)) {
   color: inherit;
@@ -886,6 +886,8 @@ body {
 }
 
 .prose {
+  --featured-color: #ff3b2d;
+  --highlight-color: #fff48f8f;
   --tw-prose-body: #374151;
   --tw-prose-headings: #111827;
   --tw-prose-lead: #4b5563;
@@ -1644,7 +1646,7 @@ article {
 article pre:not(blockquote pre) {
   margin-left: -2rem;
   margin-right: -2rem;
-  padding: 2rem !important;
+  padding: 1rem !important;
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -1710,10 +1712,36 @@ article blockquote {
     transform: rotate(360deg);
   }
 }
+@keyframes ping {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.9;
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
 
 .hover\:animate-spin:hover {
   animation: spin 1s linear infinite;
 }
+.hover\:animate-ping:hover {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.hover\:animate-pulse:hover {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
 
 .hover\:bg-black\/\[2\%\]:hover {
   background-color: rgb(0 0 0 / 2%);
