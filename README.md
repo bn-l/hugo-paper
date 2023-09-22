@@ -1,35 +1,6 @@
-<div align="center">
-<p><a href="https://kee.so/" target="_blank"><img src="https://i.imgur.com/x5SRUoo.png" alt="kee.so" /></a></p>
 
-Create now ➫ [🔗 kee.so](https://kee.so/)
+### Major changes to base hugo-paper theme.
 
-</div>
-
----
-
-<div align="center">
-<h1>Paper <sup><sup><sub>6.21</sub></sup></sup></h1>
-
-Demo → [hugo-paper.vercel.app](https://hugo-paper.vercel.app/)
-
-A simple, clean, customizable Hugo theme.
-
-⚡️ Fast | 👒 Customizable | 🫙 Smooth
-
-</div>
-
-## Links
-
-Product Hunt: [producthunt.com/posts/hugo-paper-6](https://www.producthunt.com/posts/hugo-paper-6)
-
-Hugo themes: [themes.gohugo.io/hugo-paper](https://themes.gohugo.io/hugo-paper/)
-
-## Overview
-
-![](./images/screenshot.png)
-![](./images/screenshot_dark.png)
-![](./images/screenshot_mobile.png)
-![](./images/pagespeed.png)
 
 ## Options
 
