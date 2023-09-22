@@ -2,20 +2,20 @@
 
     <h1>{{ .Title }}</h1>
     {{ .Content }}
-
+    
     {{ range (where site.RegularPages "Type" "in" site.Params.mainSections).GroupByDate "2006-01" }}
     
-        <h2 
+        <h4 
             {{/*  style="color: var(--tw-prose-counters) !important"  */}}
             style="color: var(--featured-color) !important"
             class="first-of-type:mt-3 archives-heading"
         >
             {{ .Key }}
-        </h2>
+        </h4>
         <div class="pl-3 year-list">
         {{ range .Pages }}
 
-            {{ .Render "li-nodesc"  }}
+            {{ .Render "li-small"  }}
         
         {{ end }}
         </div>
