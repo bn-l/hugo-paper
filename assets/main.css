@@ -1636,6 +1636,7 @@ article {
   line-height: 1.8;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+  word-break: break-word;
 }
 
 :is(.dark article) {
