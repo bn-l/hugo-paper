@@ -10,11 +10,13 @@
 - Main content now wraps on word-break (necessary for mobile view)
 - Image render hook: If you have a directory like this:
 
+```
 content/
 ├── posts/
 │   ├── images/
 │   ├── post1.md
 │   └── post2.md
+```
 
 And you reference an image in a post like this: `images/someimage.jpg`, hugo will not link it correctly. The custom render hook fixes this.
 
