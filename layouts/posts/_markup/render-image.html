@@ -1,10 +1,20 @@
 {{ $dest := .Destination }}
 {{ $destParsed := urls.Parse $dest }}
+{{ $section := .Page.Type }}
 
-{{ if $destParsed.IsAbs }}
-    <img src="{{ $dest }}" alt="{{ .Text }}" />
+    {{/*  
+    
+    - if abs src (dest) path, or page is a leaf bundle (.Page.BundleType = leaf), do nothing
+    - else, join the dir + dest to the root
+    - This fixes hugo's image src handling
+    
+    */}}
+
+{{ if or $destParsed.IsAbs (eq .Page.BundleType "leaf") }}
+    <img src="{{ $dest }}" alt="{{ .Text }}" title='{{ replace .PlainText "-" " " | title }}' />
 {{ else }}
-    {{/*  {{ $newPath := printf "/posts/images/%s" (path.Base $dest) }}  */}}
-    {{ $newPath := path.Join "/posts/" $dest }}
-    <img src="{{ $newPath }}" alt="{{ .Text }}" />
+
+    {{ $newPath := path.Join "/" .Page.File.Dir $dest }}
+
+    <img src="{{ $newPath }}" alt="{{ .Text }}" title='{{ replace .PlainText "-" " " | title }}' />
 {{ end }}
