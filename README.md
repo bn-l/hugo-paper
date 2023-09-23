@@ -1,5 +1,22 @@
 
-### Major changes to base hugo-paper theme.
+## Major changes to base hugo-paper theme
+
+- Fixed display on mobile devices
+- Improved templates for taxonomies and terms
+- Added a new Archives template
+- Completely renovated the default list template (improved logic, organised jumbled pieces into separate partials / templates)
+- Added opengraph internal template to head
+- Added [mermaid](https://mermaid.js.org/intro/n00b-gettingStarted.html#_1-using-the-live-editor) support (markdown diagrams)
+- Main content now wraps on word-break (necessary for mobile view)
+- Image render hook: If you have a directory like this:
+
+content/
+├── posts/
+│   ├── images/
+│   ├── post1.md
+│   └── post2.md
+
+And you reference an image in a post like this: `images/someimage.jpg`, hugo will not link it correctly. The custom render hook fixes this.
 
 
 ## Options
