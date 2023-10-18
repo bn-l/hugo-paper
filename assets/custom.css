@@ -1,4 +1,18 @@
 
+code {
+    background-color: rgba(0, 0, 0, 0.035)
+}
+
+:is(.dark code) {
+    background-color: rgba(255, 255, 255, 0.055)  
+}
+
+.archives {
+    font-size: 1.1em;
+    margin-top: 2ex;
+    margin-bottom: 2ex;
+}
+
 .nostylelink {
     color: inherit;
     text-decoration: none;
@@ -87,6 +101,10 @@ mark {
     margin-top: 1.5ex;
 }
 
+.footnote-ref {
+    padding-left: 0.35ch;
+}
+
 .footnotes {
     font-size: 0.9em;
     font-weight: 300;
@@ -166,6 +184,11 @@ ul ul ul ul {
 
 /* Iphone 12/13 mini is 320x519 px */
 /* default:  font-size: 16px !important; */
+
+html {
+    /* font-size: 14px !important;  */
+}
+
 
 @media screen and (min-width: 0px) and (max-width: 400px) {
     body {

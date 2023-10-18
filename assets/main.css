@@ -704,7 +704,7 @@ body {
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.4em;
   margin-top: 1.2em;
   margin-bottom: 0.8em;
   line-height: 1.3333333;
@@ -718,7 +718,7 @@ body {
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
-  font-size: 1.25em;
+  font-size: 1.15em;
   margin-top: 1.3em;
   margin-bottom: 0.9em;
   line-height: 1.6;
@@ -754,7 +754,7 @@ body {
 
 .prose :where(figcaption):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-captions);
-  font-size: 0.875em;
+  font-size: 0.895em;
   line-height: 1.4285714;
   margin-top: 0.8571429em;
 }
@@ -1631,7 +1631,7 @@ body {
 }
 
 article {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.75rem;
   line-height: 1.8;
   --tw-text-opacity: 1;

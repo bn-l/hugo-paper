@@ -1,5 +1,5 @@
 
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+<section class="archives relative my-10 first-of-type:mt-0 last-of-type:mb-0">
     {{ if gt .Weight 0 }}
     <span
         style="display: block; margin-top: -2ex !important;"
@@ -10,7 +10,7 @@
     >
     {{ end }}
     <a class="nostylelink" href="{{ .Permalink}}">
-        <h5 class="!my-0 pb-1 font-bold !leading-none">{{ .Title | markdownify }}</h5>
+        <h5 class="!my-0 pb-1 !leading-none">{{ .Title | markdownify }}</h5>
         <time class="text-sm antialiased opacity-60"
             >{{ .Date | time.Format ":date_medium" }}</time
         >
